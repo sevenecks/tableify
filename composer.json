@@ -1,6 +1,6 @@
 {
     "name": "sevenecks/tableify",
-    "description": "",
+    "description": "Transform a multidimensional array into a pretty table that can be echoed to the screen or logged to a file.",
     "keywords": ["string", "php", "console", "cli", "shell", "formatting", "command line", "logging", "pretty printer", "table printer", "array to table"],
     "homepage": "https://github.com/sevenecks",
     "type": "library",
