@@ -1,0 +1,26 @@
+{
+    "name": "sevenecks/tableify",
+    "description": "",
+    "keywords": ["string", "php", "console", "cli", "shell", "formatting", "command line", "logging", "pretty printer", "table printer", "array to table"],
+    "homepage": "https://github.com/sevenecks",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brendan Butts",
+            "email": "bbutts@stormcode.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+    },
+    "require": {
+        "php": ">=7.0",
+        "sevenecks/string-utils": "^0.0.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "SevenEcks\\Tableify\\": "src/"
+        }
+    }
+}
