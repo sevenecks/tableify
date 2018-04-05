@@ -175,6 +175,10 @@ public function make();
 public function toArray();
 ```
 
+## TableifyInterface
+
+The TableifyInterface allows you to implement your own Tableify in whatever means you want while maintaining the same public facing interface. You can use dependency injection to insert your own if you have a dependency injection container.
+
 ## Change Log
 Please see [Change Log](CHANGELOG.md) for more information.
 
