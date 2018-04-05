@@ -9,8 +9,26 @@ Via Composer
 ```bash
 composer require sevenecks/tableify
 ```
+## Overview
 
-## Usage
+Using method chaining is the best way to use this package. It makes for a simple, readable syntax as opposed to directly calling the tablify() method and passing in a bunch of hard ot understand arguments. All the public methods aside from tableify() are chainable, and the object defines some common sense defaults which means you can basically use the make() method without any configuration.
+
+Here is an example using method chaining:
+
+```php
+$table_data = $tableify->center()->seperator('@')->make($someMultiDimensionalArray);
+```
+And here is a really hard to understand example without using method chaining:
+
+```php
+$table_data = $tableify->tableify($someMultiDimensionalArray, 'center', 1, '@', '-', '-');
+```
+
+As you can see, method chaining FTW in terms of clarity. It also means you can leave off optional arguments that you don't feel like setting.
+
+The make() method is what does the actual work, and by work, I mean it calls the tableify() method and passes in the classes currently set properties.
+
+## Example Usage
 
 ```php
 <?php
