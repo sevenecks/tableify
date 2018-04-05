@@ -4,19 +4,24 @@ namespace SevenEcks\Tableify;
 use SevenEcks\StringUtils\StringUtils;
 
 /**
- * This class is a utility package for manipulating strings in ways that. Specifically designed
- * for formatting terminal output and log output
+ * This class allows you to create pretty printable / loggable tables from
+ * a multi-dimensional array of strings!
  *
  * @author Brendan Butts <bbutts@stormcode.net>
- *
  */
 class Tableify
 {
+    // string library
     protected $su = null;
+    // format function to use IE: left/right/center
     protected $formatter = 'left';
+    // how much empty space padding around the seperator
     protected $seperator_padding = 1;
+    // what's the seperator between columns going to be?
     protected $seperator = '|';
+    // what should the header row be made out of?
     protected $header_character = '-';
+    // what should the row below the header row be made of
     protected $below_header_character = '-';
 
     /**
@@ -34,48 +39,93 @@ class Tableify
         $this->su = $string_utils;
     }
 
+    /**
+     * Set the formatter to be used on the ->make method to left
+     *
+     * @return $this
+     */
     public function left()
     {
         $this->formatter = 'left';
         return $this;
     }
 
+    /** Set the formatter to be used on the ->make method to center
+     *
+     * @return $this
+     */
     public function center()
     {
         $this->formatter = 'center';
         return $this;
     }
 
+    /**
+     * Set the formatter to be used on the ->make method to right
+     *
+     * @return $this
+     */
     public function right()
     {
         $this->formatter = 'right';
         return $this;
     }
 
+    /**
+     * Set the seperator padding the ->make method uses
+     *
+     * @param int $new_padding
+     */
     public function seperatorPadding(int $new_padding)
     {
         $this->seperator_padding = $new_padding;
         return $this;
     }
 
+    /**
+     * Set the seperator the make method will use
+     *
+     * @param string $new_seperator
+     * @return $this
+     */
     public function seperator(string $new_seperator)
     {
         $this->seperator = $new_seperator;
         return $this;
     }
    
+    /**
+     * Set the header_character that the make method will use
+     *
+     * @param string $new_header_character
+     * @return $this
+     */
     public function headerCharacter(string $new_header_character)
     {
         $this->header_character = $new_header_character;
         return $this;
     }
 
+    /**
+     * Set the character(s) to make up the row below the header
+     *
+     * @param string $new_below_header_character
+     * @return $this
+     */
     public function belowHeaderCharacter(string $new_below_header_character)
     {
         $this->below_header_character = $new_below_header_character;
         return $this;
     }
 
+    /**
+     * Use the method chained arguments (or defaults) to take the $data array
+     * that was passed into the function and turn it into a tableified array
+     * of rows of strings ready for pretty printing or logging
+     *
+     * @param array $data
+     * @return array
+     */
     public function make(array $data)
     {
         return $this->tableify($data, $this->formatter, $this->seperator_padding, $this->seperator, $this->header_character, $this->below_header_character);
