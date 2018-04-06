@@ -4,7 +4,7 @@ namespace SevenEcks\Tableify;
 use SevenEcks\StringUtils\StringUtils;
 
 /**
- * This interface is a contract for creating a Tableify class that allows for the creation of 
+ * This interface is a contract for creating a Tableify class that allows for the creation of
  * pretty printable / loggable tables from a multi-dimensional array of strings using method chaining!
  *
  * @author Brendan Butts <bbutts@stormcode.net>
@@ -12,7 +12,7 @@ use SevenEcks\StringUtils\StringUtils;
 interface TableifyInterface
 {
     /**
-     * Construct the Tableify object, accepting a StringUtils class, 
+     * Construct the Tableify object, accepting a StringUtils class,
      * if it is not passed in, the constructor injects one on it's own.
      *
      * @param object $string_utils;
@@ -28,7 +28,7 @@ interface TableifyInterface
      * @param object $string_utils
      * @return $this
      */
-    public static function new (array $data, StringUtils $su = null);
+    public static function new(array $data, StringUtils $su = null);
 
     /**
      * Set the data array on the object
@@ -90,7 +90,7 @@ interface TableifyInterface
     public function belowHeaderCharacter(string $new_below_header_character);
 
     /**
-     * Make a table based on the values assigned to the class via 
+     * Make a table based on the values assigned to the class via
      * methods.
      *
      * @return $this

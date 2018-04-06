@@ -29,7 +29,7 @@ class Tableify implements TableifyInterface
     private $table = [];
 
     /**
-     * Construct the Tableify object, accepting a StringUtils class, 
+     * Construct the Tableify object, accepting a StringUtils class,
      * if it is not passed in, the constructor injects one on it's own.
      *
      * @param object $string_utils;
@@ -54,7 +54,7 @@ class Tableify implements TableifyInterface
      * @param object $string_utils
      * @return $this
      */
-    public static function new (array $data, StringUtils $su = null)
+    public static function new(array $data, StringUtils $su = null)
     {
         // if no string utils exists, create one
         if (!$su) {
@@ -160,7 +160,7 @@ class Tableify implements TableifyInterface
     }
 
     /**
-     * Make a table based on the values assigned to the class via 
+     * Make a table based on the values assigned to the class via
      * methods.
      *
      * @return $this
@@ -256,6 +256,27 @@ class Tableify implements TableifyInterface
                 }
             }
         }
-        return $lengths;        
+        return $lengths;
+    }
+
+    public static function help()
+    {
+        $help = [
+            ['Method', 'Description of Method'],
+            ['Tableify::new(array)', 'Static method to create a new instance'],
+            ['center()', 'Set the formatter to use the center method'],
+            ['left()', 'Set the formatter to use the left method'],
+            ['right()', 'set the formatter to use the right method'],
+            ['setData(array)', 'Set the data array on the object'],
+            ['seperatorPadding(string)', 'Set the # of blank characters around the seperator'],
+            ['seperator(string)', 'Set the seperator string'],
+            ['headerCharacter(string)', 'Set the header character'],
+            ['belowHeaderCharacter(string)', 'Set the below header character string'],
+            ['make()', 'Make the data into an array of table rows'],
+            ['toArray()', 'Return the array of table rows'],
+            ['Tableify::help()', 'Display this help!'],
+        ];
+
+        return static::new($help)->make()->toArray();
     }
 }

@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use SevenEcks\Tableify\Tableify;
 
 $data = [
-    ['Name', 'Date', 'Phone', 'Age'], 
+    ['Name', 'Date', 'Phone', 'Age'],
     ['Altec Lansing', '03/22/18', '617-555-0584', '30'],
     ['Fack', '03/22/18', '508-555-0584', '24'],
     ['Seven Ecks', '03/22/18', '+1-888-555-0584', '100'],
@@ -26,5 +26,9 @@ foreach ($table_data as $row) {
 echo "Table Construction using method chaining:\n";
 $table_rows = Tableify::new($data)->center()->seperatorPadding(2)->seperator('*')->headerCharacter('@')->make()->toArray();
 foreach ($table_rows as $row) {
+    echo $row . "\n";
+}
+// display the help list
+foreach (Tableify::help() as $row) {
     echo $row . "\n";
 }
